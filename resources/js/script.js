@@ -68,16 +68,6 @@ for (let ele of arr) {
     });
 }
 
-setInterval(checkScrollLevel, 50);
-function checkScrollLevel() {
-    if (window.innerWidth < 1024 && scrollY > 500) {
-        sticky.style.visibility = 'visible';
-    } else {
-        sticky.style.visibility = 'hidden';
-        slideNav.style.display = 'none';
-        
-    }
-}
 
 const story = document.querySelector('.story-section-gallery');
 let fun = async () =>  {
@@ -108,3 +98,14 @@ let fun = async () =>  {
     console.log(response)
 }
 fun();
+
+setInterval(checkScrollLevel, 50);
+function checkScrollLevel() {
+    if (window.innerWidth < 1024 && scrollY > 500) {
+        sticky.style.visibility = 'visible';
+    } else {
+        sticky.style.visibility = 'hidden';
+        slideNav.style.display = 'none';
+        
+    }
+}
