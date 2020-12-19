@@ -80,7 +80,7 @@ function checkScrollLevel() {
 }
 
 const story = document.querySelector('.story-section-gallery');
-let fun = async ()=>  {
+let fun = async () =>  {
     const url = "https://api.nytimes.com/svc/news/v3/content/all/all.json?api-key=5x87QEW3s0jpfhVWIq7pAF0tFtZp5VXQ";
     
    let fetchAPI = await fetch(url);
