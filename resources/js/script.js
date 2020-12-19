@@ -78,3 +78,33 @@ function checkScrollLevel() {
         
     }
 }
+
+const story = document.querySelector('.story-section-gallery');
+let fun = async ()=>  {
+    const url = "https://api.nytimes.com/svc/news/v3/content/all/all.json?api-key=5x87QEW3s0jpfhVWIq7pAF0tFtZp5VXQ";
+    
+   let fetchAPI = await fetch(url);
+   let response = await fetchAPI.json();
+   for (let i = 0; i < 20; i++) {
+       const eachResponse = response.results[i];
+       if (!eachResponse.multimedia) {
+           continue;
+       } else {
+
+           let div = document.createElement('div');
+           div.classList.add("col-section");
+           div.innerHTML = `
+                <p class="date-box">${eachResponse["published_date"].substring(0,9)}</p>
+                <h2>${eachResponse.title}</h2>
+                <figure>
+                    <img src="${eachResponse.multimedia[2].url}">
+                </figure>
+                <p>${eachResponse.abstract}</p>
+                <button>full story</button>
+            `
+           story.appendChild(div);
+       }
+    }
+    console.log(response)
+}
+fun();
